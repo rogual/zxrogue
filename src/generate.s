@@ -1,7 +1,9 @@
 
 
             ; generate a world
-gen_main    ld bc, $3f01
+gen_main    ld b, $3f
+	    ld a, (pl_level)
+	    ld c, a
             call srand
 
             call mkperim
@@ -35,14 +37,26 @@ gen_main    ld bc, $3f01
             call obj_inst_at
 
             ; define rat enemy
-            ld bc, $0501
-            ld hl, od_rat
-            call obj_inst_at
-            ld bc, $1208
-            ld hl, od_rat
-            call obj_inst_at
+	    call gen_enemy
+	    call gen_enemy
 
             ret
+
+gen_enemy
+            ld a, board_w
+	    dec a
+	    call randlt
+	    inc a
+	    ld b, a
+            ld a, board_h
+	    dec a
+	    call randlt
+	    inc a
+	    ld c, a
+	
+            ld hl, od_rat
+            call obj_inst_at
+	    ret
 
 
 
