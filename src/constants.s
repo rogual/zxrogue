@@ -14,11 +14,11 @@ OF_FIGHT    equ 16      ; Can be attacked
 next        byte ; ID of next object or 255 if last
 cnext       byte ; ID of next object in same cell (or 255)
 flags       byte ; Bitmask of OF_ flags
-hp          byte ; Hit points
 glyph       byte ; Character graphic
 attr        byte ; Display attributes
-pos         word ; Screen pos or $ffff if tile
+hp          byte ; Hit points
 eventh      word ; Event handler address or 0
+pos         word ; Screen pos or $ffff if tile
             ends
 
             ; Cell structure
