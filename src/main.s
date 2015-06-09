@@ -1,7 +1,8 @@
             org $8000
             output build/main.bin
 
-main        call init
+main        call gfx_init
+            call init
             call test_run
             call init
             call game_start
@@ -33,6 +34,7 @@ init        call obj_init
             include cells.s
             include objects.s
             include generate.s
+            include putch.s
             include draw.s
             include drawbar.s
             include fight.s

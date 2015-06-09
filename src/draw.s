@@ -179,5 +179,6 @@ draw_hud    push bc
             pop bc
             ret
 
-m_amulet    db "+ Amulet",0
+m_amulet    db 90h," Amulet",0
 m_hp        db "HP:",0
+
