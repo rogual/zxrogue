@@ -175,10 +175,19 @@ draw_hud    push bc
             call setcur
 .endamulet
 
+            ; Draw level
+            inc c
+            call setcur
+            ld hl, m_level
+            call print
+
+            ld a, (pl_level)
+            call print_a
 
             pop bc
             ret
 
 m_amulet    db 90h," Amulet",0
 m_hp        db "HP:",0
+m_level     db "Level ",0
 
