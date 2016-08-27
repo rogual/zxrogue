@@ -25,6 +25,11 @@ gen_main    ld b, $3f
             cp 3
             jp nz, .noamulet
 
+            ; amulet only if you don't have it
+            ld a, (pl_amulet)
+            cp 0
+            jp nz, .noamulet
+
             ; amulet
             ld bc, $0606
             ld hl, od_amulet
